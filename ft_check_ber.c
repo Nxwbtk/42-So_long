@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_check_ber.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsirikam <bsirikam@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 01:15:09 by bsirikam          #+#    #+#             */
-/*   Updated: 2022/12/06 20:25:55 by bsirikam         ###   ########.fr       */
+/*   Created: 2022/12/05 01:16:17 by bsirikam          #+#    #+#             */
+/*   Updated: 2022/12/06 20:35:52 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int ac, char **av)
+void	ft_check_ber(char *av, t_sarabun *sarabun)
 {
-	t_sarabun	sarabun;
+	int		fd;
 
-	if (ac != 2)
+	if (ft_strrchr(av, '.') == NULL)
 	{
-		ft_printf("Please input file");
+		ft_printf("File is invalid");
 		exit(1);
 	}
-	else if (ac == 2)
-		ft_check_ber(av[1], &sarabun);
+	if (ft_strncmp(ft_strrchr(av, '.'), ".ber", 5) == 0)
+	{
+		fd = open(av, O_RDONLY);
+		if (fd < 0)
+		{
+			ft_printf("File is invalid");
+			exit(1);
+		}
+		ft_get_line(fd, sarabun, av);
+	}
+	else
+		exit(1);
 }

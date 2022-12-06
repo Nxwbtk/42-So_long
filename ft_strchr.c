@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsirikam <bsirikam@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 01:15:09 by bsirikam          #+#    #+#             */
-/*   Updated: 2022/12/06 20:25:55 by bsirikam         ###   ########.fr       */
+/*   Created: 2022/12/05 02:07:50 by bsirikam          #+#    #+#             */
+/*   Updated: 2022/12/05 02:07:51 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int ac, char **av)
+char	*ft_strchr(const char *s, int c)
 {
-	t_sarabun	sarabun;
+	char			*src;
+	size_t			s_len;
+	unsigned char	cc;
 
-	if (ac != 2)
+	src = ((char *)s);
+	s_len = ft_strlen(src);
+	cc = (unsigned char)c;
+	if (!c || !s)
+		return (src + s_len);
+	while (*src)
 	{
-		ft_printf("Please input file");
-		exit(1);
+		if (*src == cc)
+			return (src);
+		src++;
 	}
-	else if (ac == 2)
-		ft_check_ber(av[1], &sarabun);
+	return (NULL);
 }

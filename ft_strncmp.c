@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsirikam <bsirikam@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 01:15:09 by bsirikam          #+#    #+#             */
-/*   Updated: 2022/12/06 20:25:55 by bsirikam         ###   ########.fr       */
+/*   Created: 2022/12/05 01:16:09 by bsirikam          #+#    #+#             */
+/*   Updated: 2022/12/05 01:16:10 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int ac, char **av)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	t_sarabun	sarabun;
+	unsigned char	*sc1;
+	unsigned char	*sc2;
+	size_t			i;
 
-	if (ac != 2)
+	i = 0;
+	sc1 = (unsigned char *)s1;
+	sc2 = (unsigned char *)s2;
+	while ((sc1[i] != '\0' || sc2[i] != '\0') && (i < n))
 	{
-		ft_printf("Please input file");
-		exit(1);
+		if (sc1[i] != sc2[i])
+		{
+			return (sc1[i] - sc2[i]);
+		}
+	i++;
 	}
-	else if (ac == 2)
-		ft_check_ber(av[1], &sarabun);
+	return (0);
 }

@@ -1,26 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_check_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsirikam <bsirikam@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 01:15:09 by bsirikam          #+#    #+#             */
-/*   Updated: 2022/12/06 20:25:55 by bsirikam         ###   ########.fr       */
+/*   Created: 2022/12/05 02:08:01 by bsirikam          #+#    #+#             */
+/*   Updated: 2022/12/05 22:33:57 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int ac, char **av)
+void	ft_check_line(char *line)
 {
-	t_sarabun	sarabun;
+	static int	c;
+	static int	p;
+	static int	e;
+	int			i;
 
-	if (ac != 2)
+	i = -1;
+	if ((line == NULL && c < 1) || p > 1 || e > 1)
 	{
-		ft_printf("Please input file");
+		free(line);
 		exit(1);
 	}
-	else if (ac == 2)
-		ft_check_ber(av[1], &sarabun);
+	while (line && line[++i])
+	{
+		if (ft_strchr("01CPE", line[i]) == NULL)
+		{
+			free(line);
+			exit(1);
+		}
+		if (line[i] == 'C')
+			c++;
+		if (line[i] == 'P')
+			p++;
+		if (line[i] == 'E')
+			e++;
+	}
 }

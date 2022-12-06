@@ -1,26 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_get_line.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsirikam <bsirikam@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 01:15:09 by bsirikam          #+#    #+#             */
-/*   Updated: 2022/12/06 20:25:55 by bsirikam         ###   ########.fr       */
+/*   Created: 2022/12/05 01:16:41 by bsirikam          #+#    #+#             */
+/*   Updated: 2022/12/07 01:32:02 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int ac, char **av)
+void	ft_get_line(int fd, t_sarabun *sarabun, char *av)
 {
-	t_sarabun	sarabun;
+	char	*line;
 
-	if (ac != 2)
+	line = get_next_line(fd);
+	sarabun->hight = 0;
+	if (line == NULL)
 	{
-		ft_printf("Please input file");
+		ft_printf("File is empyty");
 		exit(1);
 	}
-	else if (ac == 2)
-		ft_check_ber(av[1], &sarabun);
+	sarabun->hight++;
+	sarabun->len = ft_strlen(line);
+	while (line)
+	{
+		free(line);
+		line = get_next_line(fd);
+		if (sarabun->len != ft_strlen(line))
+		{
+			free(line);
+			break ;
+		}
+		// ft_check_line(line);
+		sarabun->hight++;
+	}
+	// ft_create_map(av, sarabun);
+	close(fd);
 }
