@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_line.c                                      :+:      :+:    :+:   */
+/*   ft_create_map.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsirikam <bsirikam@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 01:16:41 by bsirikam          #+#    #+#             */
-/*   Updated: 2022/12/07 13:51:14 by bsirikam         ###   ########.fr       */
+/*   Created: 2022/12/07 13:42:18 by bsirikam          #+#    #+#             */
+/*   Updated: 2022/12/09 18:13:10 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_get_line(int fd, t_sarabun *sarabun, char *av)
+void	ft_create_map(char *av, t_sarabun *sarabun)
 {
-	char	*line;
+	int	fd;
+	int	high;
 
-	line = get_next_line(fd);
-	sarabun->hight = 0;
-	if (line == NULL)
+	fd = open(av, O_RDONLY);
+	sarabun->map = malloc(sizeof(char *) * (sarabun->hight + 1));
+	high = 0;
+	while (high < sarabun->hight)
 	{
-		ft_printf("File is empyty");
-		exit(1);
+		sarabun->map[high] = get_next_line(fd);
+		high++;
 	}
-	sarabun->hight++;
-	sarabun->len = ft_strlen(line);
-	while (line)
+	sarabun->map[high] = NULL;
+	int	i = 0;
+	while (i < high)
 	{
-		free(line);
-		line = get_next_line(fd);
-		if (sarabun->len != ft_strlen(line))
-		{
-			free(line);
-			break ;
-		}
-		// ft_check_line(line);
-		sarabun->hight++;
+		printf("%s", sarabun->map[i]);
+		i++;
 	}
-	ft_create_map(av, sarabun);
+
 	close(fd);
 }

@@ -6,7 +6,7 @@
 /*   By: bsirikam <bsirikam@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 01:07:57 by bsirikam          #+#    #+#             */
-/*   Updated: 2022/12/06 20:28:56 by bsirikam         ###   ########.fr       */
+/*   Updated: 2022/12/07 13:46:00 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 
 typedef struct s_sarabun
 {
-	// char	*map[];
+	char	**map;
 	int		hight;
 	int		len;
 }			t_sarabun;
