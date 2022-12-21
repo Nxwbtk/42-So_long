@@ -6,7 +6,7 @@
 /*   By: bsirikam <bsirikam@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:42:18 by bsirikam          #+#    #+#             */
-/*   Updated: 2022/12/09 18:13:10 by bsirikam         ###   ########.fr       */
+/*   Updated: 2022/12/21 21:22:38 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,8 @@ void	ft_create_map(char *av, t_sarabun *sarabun)
 		high++;
 	}
 	sarabun->map[high] = NULL;
-	int	i = 0;
-	while (i < high)
-	{
-		printf("%s", sarabun->map[i]);
-		i++;
-	}
-
+	// printf("Test");
+	ft_check_frame(sarabun);
+	// next is flood fill
 	close(fd);
 }

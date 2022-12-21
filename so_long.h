@@ -6,7 +6,7 @@
 /*   By: bsirikam <bsirikam@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 01:07:57 by bsirikam          #+#    #+#             */
-/*   Updated: 2022/12/07 13:46:00 by bsirikam         ###   ########.fr       */
+/*   Updated: 2022/12/21 20:55:17 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	ft_get_line(int fd, t_sarabun *sarabun, char *av);
 void	ft_check_line(char *line);
 char	*ft_strchr(const char *s, int c);
 void	ft_create_map(char *av, t_sarabun *sarabun);
+void	ft_check_frame(t_sarabun *sarabun);
 int		ft_printf(const char *format, ...);
 int		ft_fmt(const char c, va_list args);
 int		ft_putchar(char c);

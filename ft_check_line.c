@@ -6,7 +6,7 @@
 /*   By: bsirikam <bsirikam@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 02:08:01 by bsirikam          #+#    #+#             */
-/*   Updated: 2022/12/05 22:33:57 by bsirikam         ###   ########.fr       */
+/*   Updated: 2022/12/21 21:22:16 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_check_line(char *line)
 	}
 	while (line && line[++i])
 	{
-		if (ft_strchr("01CPE", line[i]) == NULL)
+		if (ft_strchr("01CPE\n", line[i]) == NULL)
 		{
 			free(line);
 			exit(1);
