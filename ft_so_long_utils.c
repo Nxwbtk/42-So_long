@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_map.c                                    :+:      :+:    :+:   */
+/*   ft_so_long_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsirikam <bsirikam@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/07 13:42:18 by bsirikam          #+#    #+#             */
-/*   Updated: 2022/12/24 22:31:29 by bsirikam         ###   ########.fr       */
+/*   Created: 2022/12/24 21:28:42 by bsirikam          #+#    #+#             */
+/*   Updated: 2022/12/24 22:28:10 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_create_map(char *av, t_sarabun *sarabun)
+int	ft_slen_no_nl(char *s)
 {
-	int	fd;
-	int	high;
+	int	count;
+	int	i;
 
-	fd = open(av, O_RDONLY);
-	sarabun->map = malloc(sizeof(char *) * (sarabun->hight + 1));
-	high = 0;
-	while (high < sarabun->hight)
+	count = 0;
+	i = 0;
+	while (s[i])
 	{
-		sarabun->map[high] = get_next_line(fd);
-		high++;
+		if (s[i] == '\n')
+			i++;
+		count++;
+		i++;
 	}
-	sarabun->map[high] = NULL;
-	close(fd);
-	ft_check_frame(sarabun);
-	ft_ha_p(sarabun);
+	return (count);
 }
-// next is flood fill
+
+// int main(int argc, char const *argv[])
+// {
+// 	char	test[] = "Test\nTest";
+// 	ft_slen_no_nl(test);
+// 	return 0;
+// }

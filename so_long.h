@@ -6,7 +6,7 @@
 /*   By: bsirikam <bsirikam@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 01:07:57 by bsirikam          #+#    #+#             */
-/*   Updated: 2022/12/21 20:55:17 by bsirikam         ###   ########.fr       */
+/*   Updated: 2022/12/24 21:42:47 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ typedef struct s_sarabun
 	char	**map;
 	int		hight;
 	int		len;
+	int		p_pos_r;
+	int		p_pos_c;
 }			t_sarabun;
 
 char	*ft_strrchr(const char *s, int c);
@@ -56,5 +58,7 @@ int		ft_uint(unsigned int n);
 int		ft_point(unsigned long p);
 int		ft_xlek(unsigned long x);
 int		ft_xyai(unsigned long X);
+void	ft_ha_p(t_sarabun *sarabun);
+int		ft_slen_no_nl(char *s);
 
 #endif

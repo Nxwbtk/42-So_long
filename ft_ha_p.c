@@ -1,45 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_frame.c                                   :+:      :+:    :+:   */
+/*   ft_ha_p.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsirikam <bsirikam@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/16 16:07:10 by bsirikam          #+#    #+#             */
-/*   Updated: 2022/12/24 22:27:13 by bsirikam         ###   ########.fr       */
+/*   Created: 2022/12/24 15:54:45 by bsirikam          #+#    #+#             */
+/*   Updated: 2022/12/24 22:13:46 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_check_frame(t_sarabun *sarabun)
+void	ft_ha_p(t_sarabun *sarabun)
 {
-	int	h;
-	int	i;
-	int	len_line;
+	int	x;
+	int	y;
 
-	h = 0;
-	i = 0;
-	len_line = 0;
-	while (sarabun->map[h])
+	x = 0;
+	while (sarabun->map[x])
 	{
-		if (h == 0 || h == (sarabun->hight - 1))
+		y = 0;
+		while (sarabun->map[x][y] != '\n' && sarabun->map[x][y])
 		{
-			while (sarabun->map[h][i] && sarabun->map[h][i] != '\n')
+			if (sarabun->map[x][y] == 'P')
 			{
-				if (sarabun->map[h][i] != '1')
-					exit(1);
-				i++;
+				sarabun->p_pos_r = x;
+				sarabun->p_pos_c = y;
+				return ;
 			}
+			y++;
 		}
-		else
-		{
-			len_line = ft_strlen(sarabun->map[h]) - 1;
-			if ((sarabun->map[h][0] != '1' || sarabun->map[h][len_line - 1] != '1'))
-			{
-				exit(1);
-			}
-		}
-		h++;
+		x++;
 	}
 }
