@@ -60,5 +60,6 @@ int		ft_xlek(unsigned long x);
 int		ft_xyai(unsigned long X);
 void	ft_ha_p(t_sarabun *sarabun);
 int		ft_slen_no_nl(char *s);
+void	ft_flood_fill(char **map, t_sarabun *sarabun, int row, int column);
 
 #endif

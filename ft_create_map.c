@@ -29,5 +29,6 @@ void	ft_create_map(char *av, t_sarabun *sarabun)
 	close(fd);
 	ft_check_frame(sarabun);
 	ft_ha_p(sarabun);
+	ft_flood_fill(sarabun->map, sarabun, sarabun->p_pos_r, sarabun->p_pos_c);
 }
 // next is flood fill
