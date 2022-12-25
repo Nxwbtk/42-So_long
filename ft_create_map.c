@@ -34,6 +34,6 @@ void	ft_create_map(char *av, t_sarabun *sarabun)
 	sarabun->num_e = 0;
 	ft_flood_fill(sarabun->map, sarabun, sarabun->p_pos_r, sarabun->p_pos_c);
     check_c_e(sarabun);
-	ft_create_real_map(map_real, sarabun);
+	ft_create_real_map(map_real, sarabun, av);
 }
 // next is flood fill

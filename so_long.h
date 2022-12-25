@@ -24,10 +24,17 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include <stdarg.h>
+# include "./MLX/mlx.h"
 
 typedef struct s_map
 {
 	char			**map;
+	void			*mlx;
+	void			*win;
+	void			*wall;
+	void			*floor;
+	void			*player;
+	void			*collect;
 }				t_map;
 
 typedef struct s_sarabun
@@ -70,7 +77,8 @@ int		ft_xyai(unsigned long X);
 void	ft_ha_p(t_sarabun *sarabun);
 int		ft_slen_no_nl(char *s);
 void	ft_flood_fill(char **map, t_sarabun *sarabun, int row, int column);
-void    check_c_e(t_sarabun *sarabun);
-void	ft_create_real_map(t_map *map_real, t_sarabun *sarabun);
+void	check_c_e(t_sarabun *sarabun);
+void	ft_create_real_map(t_map *map_real, t_sarabun *sarabun, char *av);
+void	ft_render(t_map *real_map, t_sarabun *sarabun);
 
 #endif
