@@ -25,15 +25,15 @@ OBJ = $(SRC:.c=.o)
 CC = gcc
 CFLAGS = #-Wall -Werror -Wextra
 HEADER = so_long.h
-MLX_INC = -LMLX -lMLX -IMLX -framework OpenGL -framework AppKit 
+MLX_INC =# -LMLX -lMLX -IMLX -framework OpenGL -framework AppKit 
 
 %.o: %.c $(HEADER)
 	@$(CC) $(MLX_INC) -c $< -o $@
 
-all: MLX_LIB $(NAME)
+all: $(MLX_LIB) $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CC) $(CFLAGS) $(MLX_INC) $(OBJ) -o $(NAME)
+	$(CC) $(CFLAGS) $(MLX_INC) $(OBJ) -o $(NAME)
 
 # bonus: all
 # 	$(CC) $(CFLAGS) -c $(SRC_B)

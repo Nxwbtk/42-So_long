@@ -17,7 +17,6 @@ void	ft_get_line(int fd, t_sarabun *sarabun, char *av)
 	char	*line;
 
 	line = get_next_line(fd);
-	sarabun->hight = 1;
 	if (line == NULL)
 	{
 		ft_printf("File is empyty");
@@ -37,6 +36,7 @@ void	ft_get_line(int fd, t_sarabun *sarabun, char *av)
 		ft_check_line(line, sarabun);
 		sarabun->hight++;
 	}
+	get_next_line(fd);
 	close(fd);
 	ft_create_map(av, sarabun);
 }

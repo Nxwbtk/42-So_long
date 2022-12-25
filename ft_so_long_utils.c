@@ -19,12 +19,15 @@ int	ft_slen_no_nl(char *s)
 
 	count = 0;
 	i = 0;
+	if (!s)
+		return (0);
 	while (s[i] != '\0')
 	{
 		if (s[i] == '\n' && s[i] != '\0')
 			i++;
 		count++;
-		i++;
+		if (s[i] != '\0')
+			i++;
 	}
 	return (count);
 }
