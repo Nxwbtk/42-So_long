@@ -15,11 +15,12 @@ NAME = so_long
 SRC = main.c ft_strrchr.c ft_strncmp.c ft_strchr.c ft_printf.c \
 ft_printf_util.c ft_printf_util2.c ft_gnl.c ft_get_line.c \
 ft_create_map.c ft_check_line.c ft_check_ber.c ft_gnl_utils.c \
-ft_check_frame.c ft_ha_p.c ft_so_long_utils.c ft_flood_fill.c
+ft_check_frame.c ft_ha_p.c ft_so_long_utils.c ft_flood_fill.c \
+ft_creat_real_map.c
 
 # SRC_B =
 
-# OBJ = $(SRC:.c=.o)
+OBJ = $(SRC:.c=.o)
 # OBJ_B = $(SRC_B:.c=.o)
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
@@ -27,7 +28,7 @@ HEADER = so_long.h
 
 all: $(NAME)
 
-$(NAME):
+$(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
 
 # bonus: all

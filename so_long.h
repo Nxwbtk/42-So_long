@@ -25,13 +25,22 @@
 # include <fcntl.h>
 # include <stdarg.h>
 
+typedef struct s_map
+{
+	char			**map;
+}				t_map;
+
 typedef struct s_sarabun
 {
 	char	**map;
+	char	**map_play;
 	int		hight;
 	int		len;
 	int		p_pos_r;
 	int		p_pos_c;
+	int		num_c;
+	int		num_c_can_read;
+	int		num_e;
 }			t_sarabun;
 
 char	*ft_strrchr(const char *s, int c);
@@ -45,7 +54,7 @@ ssize_t	ft_strlen(const char *s);
 char	*free_line(char *line);
 void	ft_check_ber(char *av, t_sarabun *sarabun);
 void	ft_get_line(int fd, t_sarabun *sarabun, char *av);
-void	ft_check_line(char *line);
+void	ft_check_line(char *line, t_sarabun *sarabun);
 char	*ft_strchr(const char *s, int c);
 void	ft_create_map(char *av, t_sarabun *sarabun);
 void	ft_check_frame(t_sarabun *sarabun);
@@ -61,5 +70,7 @@ int		ft_xyai(unsigned long X);
 void	ft_ha_p(t_sarabun *sarabun);
 int		ft_slen_no_nl(char *s);
 void	ft_flood_fill(char **map, t_sarabun *sarabun, int row, int column);
+void    check_c_e(t_sarabun *sarabun);
+void	ft_create_real_map(t_map *map_real, t_sarabun *sarabun);
 
 #endif

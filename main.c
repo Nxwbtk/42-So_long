@@ -22,5 +22,8 @@ int	main(int ac, char **av)
 		exit(1);
 	}
 	else if (ac == 2)
+	{
 		ft_check_ber(av[1], &sarabun);
+		
+	}
 }

@@ -34,7 +34,7 @@ void	ft_get_line(int fd, t_sarabun *sarabun, char *av)
 			free(line);
 			break ;
 		}
-		ft_check_line(line);
+		ft_check_line(line, sarabun);
 		sarabun->hight++;
 	}
 	close(fd);

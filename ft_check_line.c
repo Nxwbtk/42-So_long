@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-void	ft_check_line(char *line)
+void	ft_check_line(char *line, t_sarabun *sarabun)
 {
 	static int	c;
 	static int	p;
@@ -39,4 +39,5 @@ void	ft_check_line(char *line)
 		if (line[i] == 'E')
 			e++;
 	}
+	sarabun->num_c_can_read = c;
 }
