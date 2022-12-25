@@ -16,7 +16,7 @@ void	ft_create_map(char *av, t_sarabun *sarabun)
 {
 	int	fd;
 	int	high;
-	t_map	*map_real = malloc(sizeof(t_map));
+	t_map	*map_real;
 
 	fd = open(av, O_RDONLY);
 	sarabun->map = malloc(sizeof(char *) * (sarabun->hight + 1));
@@ -34,6 +34,7 @@ void	ft_create_map(char *av, t_sarabun *sarabun)
 	sarabun->num_e = 0;
 	ft_flood_fill(sarabun->map, sarabun, sarabun->p_pos_r, sarabun->p_pos_c);
     check_c_e(sarabun);
+	free(sarabun->map);
 	ft_create_real_map(map_real, sarabun, av);
 }
 // next is flood fill

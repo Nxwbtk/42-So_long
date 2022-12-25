@@ -19,9 +19,9 @@ int	ft_slen_no_nl(char *s)
 
 	count = 0;
 	i = 0;
-	while (s[i])
+	while (s[i] != '\0')
 	{
-		if (s[i] == '\n')
+		if (s[i] == '\n' && s[i] != '\0')
 			i++;
 		count++;
 		i++;

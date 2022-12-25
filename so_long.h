@@ -40,7 +40,6 @@ typedef struct s_map
 typedef struct s_sarabun
 {
 	char	**map;
-	char	**map_play;
 	int		hight;
 	int		len;
 	int		p_pos_r;
