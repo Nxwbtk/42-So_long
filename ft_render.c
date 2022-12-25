@@ -14,8 +14,8 @@
 
 void	ft_render(t_map *real_map, t_sarabun *sarabun)
 {
-	// for (int x = 0; x < sarabun->hight; x++)
-	// 	printf("%s", real_map->map[x]);
+	for (int x = 0; x < sarabun->hight; x++)
+		printf("%s", real_map->map[x]);
 	// free(real_map->mlx);
 	// printf("%d\n", sarabun->len);
 	// printf("%d\n", sarabun->hight);

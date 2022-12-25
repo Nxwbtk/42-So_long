@@ -25,7 +25,7 @@ OBJ = $(SRC:.c=.o)
 CC = gcc
 CFLAGS = #-Wall -Werror -Wextra
 HEADER = so_long.h
-MLX_INC =# -LMLX -lMLX -IMLX -framework OpenGL -framework AppKit 
+MLX_INC = -LMLX -lMLX -IMLX -framework OpenGL -framework AppKit 
 
 %.o: %.c $(HEADER)
 	@$(CC) $(MLX_INC) -c $< -o $@
