@@ -14,34 +14,80 @@
 
 void	ft_render(t_map *real_map, t_sarabun *sarabun)
 {
-	for (int x = 0; x < sarabun->hight; x++)
-		printf("%s", real_map->map[x]);
 	real_map->mlx = mlx_init();
 	real_map->win = mlx_new_window(real_map->mlx, (sarabun->len * 64) + 1, \
-	(sarabun->hight * 64) + 1, "42Bangkok");
-	real_map->wall = mlx_xpm_file_to_image(real_map->mlx, "./img/Armel64.xpm", &sarabun->len, &sarabun->hight);
-	int h = 0;
-	int	l = 0;
+	(sarabun->hight * 64) + 1, "42Bangkok Armel's Adventure");
+	real_map->wall = mlx_xpm_file_to_image(real_map->mlx, "./img/wall64.xpm", \
+	&sarabun->len, &sarabun->hight);
+	real_map->floor = mlx_xpm_file_to_image(real_map->mlx, "./img/floor.xpm", \
+	&sarabun->len, &sarabun->hight);
+	real_map->player = mlx_xpm_file_to_image(real_map->mlx, "./img/Armel64.xpm", \
+	&sarabun->len, &sarabun->hight);
+	ft_floor(real_map, sarabun);
+	ft_wall(real_map);
+	mlx_loop(real_map->mlx);
+	ft_free_render(real_map);
+}
+
+void	ft_wall(t_map *real_map)
+{
+	int	h;
+	int	l;
+
+	h = 0;
+	l = 0;
 	while (real_map->map[h])
 	{
 		l = 0;
 		while (real_map->map[h][l] != '\0' && real_map->map[h][l] != '\n')
 		{
-			mlx_put_image_to_window(real_map->mlx, real_map->win, real_map->wall, l * 64, h * 64);
+			if (real_map->map[h][l] == '1')
+			{
+				mlx_put_image_to_window(real_map->mlx, real_map->win, \
+				real_map->wall, l * 64, h * 64);
+			}
+			if (real_map->map[h][l] == 'P')
+			{
+				mlx_put_image_to_window(real_map->mlx, real_map->win, \
+				real_map->player, l * 64, h * 64);
+			}
 			l++;
 		}
 		h++;
 	}
-	mlx_loop(real_map->mlx);
-	int	x = 0;
+}
+
+void	ft_floor(t_map *real_map, t_sarabun *sarabun)
+{
+	int	h;
+	int	l;
+
+	h = 0;
+	l = 0;
+	while (real_map->map[h])
+	{
+		l = 0;
+		while (real_map->map[h][l] != '\0' && real_map->map[h][l] != '\n')
+		{
+			mlx_put_image_to_window(real_map->mlx, real_map->win, \
+			real_map->floor, l * 64, h * 64);
+			l++;
+		}
+		h++;
+	}
+}
+
+void	ft_free_render(t_map *real_map)
+{
+	int	x;
+
+	x = 0;
 	while (real_map->map[x] != NULL)
 	{
 		free(real_map->map[x]);
 		x++;
 	}
 	free(real_map->map);
-	printf("\nFreed\n");
-	//free(real_map->map);
 	free(real_map);
 	exit(1);
 }

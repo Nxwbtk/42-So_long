@@ -79,5 +79,9 @@ void	ft_flood_fill(char **map, t_sarabun *sarabun, int row, int column);
 void	check_c_e(t_sarabun *sarabun);
 void	ft_create_real_map(t_map *map_real, t_sarabun *sarabun, char *av);
 void	ft_render(t_map *real_map, t_sarabun *sarabun);
+void	ft_floor(t_map *real_map, t_sarabun *sarabun);
+void	ft_wall(t_map *real_map);
+void	ft_free_map(t_sarabun *sarabun);
+void	ft_free_render(t_map *real_map);
 
 #endif

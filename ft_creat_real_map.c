@@ -33,10 +33,5 @@ void	ft_create_real_map(t_map *map_real, t_sarabun *sarabun, char *av)
 	}
 	map_real->map[i] = NULL;
 	close(fd);
-	// for (int i = 0; i < sarabun->hight; i++)
-	// {
-	// 	printf("|i = %d| %s", i, sarabun->map_play[i]);
-	// }
-	// free(map_real->map);
 	ft_render(map_real, sarabun);
 }
