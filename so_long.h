@@ -35,6 +35,7 @@ typedef struct s_map
 	void			*floor;
 	void			*player;
 	void			*collect;
+	void			*exit;
 }				t_map;
 
 typedef struct s_sarabun

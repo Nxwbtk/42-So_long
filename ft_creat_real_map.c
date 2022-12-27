@@ -29,6 +29,8 @@ void	ft_create_real_map(t_map *map_real, t_sarabun *sarabun, char *av)
 	while (i < sarabun->hight)
 	{
 		map_real->map[i] = get_next_line(fd);
+		if (map_real->map[i][ft_strlen(map_real->map[i]) - 1] == '\n')
+			map_real->map[i][ft_strlen(map_real->map[i]) - 1] = '\0';
 		i++;
 	}
 	map_real->map[i] = NULL;
