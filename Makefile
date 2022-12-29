@@ -16,7 +16,7 @@ SRC = main.c ft_strrchr.c ft_strncmp.c ft_strchr.c ft_printf.c \
 ft_printf_util.c ft_printf_util2.c ft_gnl.c ft_get_line.c \
 ft_create_map.c ft_check_line.c ft_check_ber.c ft_gnl_utils.c \
 ft_check_frame.c ft_ha_p.c ft_so_long_utils.c ft_flood_fill.c \
-ft_creat_real_map.c ft_render.c
+ft_creat_real_map.c ft_render.c ft_key_hook.c
 
 # SRC_B =
 
@@ -38,6 +38,9 @@ $(NAME): $(OBJ)
 # bonus: all
 # 	$(CC) $(CFLAGS) -c $(SRC_B)
 # 	ar rcs $(NAME) $(OBJ_B)
+
+leak:
+	@leaks -atExit -- ./so_long map.ber
 
 MLX_LIB:
 	@make -C ./MLX

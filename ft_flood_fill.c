@@ -37,7 +37,7 @@ void	check_c_e(t_sarabun *sarabun)
 	if (sarabun->num_c != sarabun->num_c_can_read || sarabun->num_e != 1)
 	{
 		ft_printf("Path error\n");
-		free(sarabun->map);
+		ft_free_map(sarabun);
 		exit(1);
 	}
 }

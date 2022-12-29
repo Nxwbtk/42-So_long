@@ -15,6 +15,7 @@
 int	main(int ac, char **av)
 {
 	t_sarabun	sarabun;
+	t_map		real_map;
 
 	if (ac != 2)
 	{
@@ -24,6 +25,7 @@ int	main(int ac, char **av)
 	else if (ac == 2)
 	{
 		sarabun.hight = 1;
+		real_map.walk = 0;
 		ft_check_ber(av[1], &sarabun);
 	}
 }

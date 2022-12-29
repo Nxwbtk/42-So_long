@@ -29,6 +29,9 @@
 typedef struct s_map
 {
 	char			**map;
+	int				p_pos_r;
+	int				p_pos_c;
+	int				walk;
 	void			*mlx;
 	void			*win;
 	void			*wall;
@@ -84,5 +87,8 @@ void	ft_floor(t_map *real_map, t_sarabun *sarabun);
 void	ft_wall(t_map *real_map);
 void	ft_free_map(t_sarabun *sarabun);
 void	ft_free_render(t_map *real_map);
+int		ft_key_hook(int key_code, t_map *real_map);
+void	ft_put_img(char c, t_map *real_map, int h, int l);
+void	ft_come_hook(t_map *real_map);
 
 #endif
