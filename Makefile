@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bsirikam <bsirikam@student.42bangkok.com>  +#+  +:+       +#+         #
+#    By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/11 21:38:14 by bsirikam          #+#    #+#              #
-#    Updated: 2022/12/24 21:41:38 by bsirikam         ###   ########.fr        #
+#    Updated: 2022/12/29 22:02:28 by bsirikam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ SRC = main.c ft_strrchr.c ft_strncmp.c ft_strchr.c ft_printf.c \
 ft_printf_util.c ft_printf_util2.c ft_gnl.c ft_get_line.c \
 ft_create_map.c ft_check_line.c ft_check_ber.c ft_gnl_utils.c \
 ft_check_frame.c ft_ha_p.c ft_so_long_utils.c ft_flood_fill.c \
-ft_creat_real_map.c ft_render.c ft_key_hook.c
+ft_creat_real_map.c ft_render.c ft_key_hook.c ft_close.c \
+ft_dern.c
 
 # SRC_B =
 

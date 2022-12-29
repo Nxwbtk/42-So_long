@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsirikam <bsirikam@student.42bangkok.com>  +#+  +:+       +#+        */
+/*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 01:07:57 by bsirikam          #+#    #+#             */
-/*   Updated: 2022/12/24 21:42:47 by bsirikam         ###   ########.fr       */
+/*   Updated: 2022/12/29 22:02:19 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ typedef struct s_map
 	int				c;
 	int				take_c;
 	int				step;
+	int				r_decoy;
+	int				c_decoy;
 	void			*mlx;
 	void			*win;
 	void			*wall;
@@ -93,5 +95,7 @@ void	ft_free_render(t_map *real_map);
 int		ft_key_hook(int key_code, t_map *real_map);
 void	ft_put_img(char c, t_map *real_map, int h, int l);
 void	ft_come_hook(t_map *real_map);
+void    ft_close(t_map *real_map);
+void	ft_dern(t_map *real_map, int r, int c);
 
 #endif

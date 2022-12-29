@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_close.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 01:15:09 by bsirikam          #+#    #+#             */
-/*   Updated: 2022/12/29 21:22:48 by bsirikam         ###   ########.fr       */
+/*   Created: 2022/12/29 21:52:00 by bsirikam          #+#    #+#             */
+/*   Updated: 2022/12/29 21:52:01 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int ac, char **av)
+void	ft_close(t_map *real_map)
 {
-	t_sarabun	sarabun;
-	t_map		real_map;
-
-	if (ac != 2)
-	{
-		ft_printf("Please input file");
-		exit(1);
-	}
-	else if (ac == 2)
-	{
-		sarabun.hight = 1;
-		real_map.step = 0;
-		real_map.r_decoy = 0;
-		real_map.c_decoy = 0;
-		ft_check_ber(av[1], &sarabun);
-	}
+	mlx_destroy_window(real_map->mlx, real_map->win);
+	ft_free_render(real_map);
+	exit(1);
 }

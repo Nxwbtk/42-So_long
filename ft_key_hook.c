@@ -6,14 +6,14 @@
 /*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 16:54:27 by bsirikam          #+#    #+#             */
-/*   Updated: 2022/12/29 18:15:44 by bsirikam         ###   ########.fr       */
+/*   Updated: 2022/12/29 21:51:20 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 void	ft_check_walk(t_map *real_map, int *r, int *c, int key_code);
-void	test_walk(t_map *real_map, int r, int c);
+int		test_walk(t_map *real_map, int r, int c);
 
 void	ft_come_hook(t_map *real_map)
 {
@@ -30,64 +30,35 @@ int	ft_key_hook(int key_code, t_map *real_map)
 	if (r == -1)
 	{
 		r = real_map->p_pos_r;
-		c = real_map->p_pos_c;		
+		c = real_map->p_pos_c;
 	}
 	ft_check_walk(real_map, &r, &c, key_code);
-	ft_printf("Key code = %d\n", key_code);
 	return (0);
 }
 
 void	ft_check_walk(t_map *real_map, int *r, int *c, int key_code)
 {
 	if (key_code == 53)
-	{
-		mlx_destroy_window(real_map->mlx, real_map->win);
-		ft_free_render(real_map);
-		exit(1);
-	}
+		ft_close(real_map);
 	if (key_code == 0 || key_code == 123)
 	{
-		(*c)--;
-		// ft_printf("Test\n");
-		test_walk(real_map, *r, *c);
-		if (real_map->map[*r][*c] == '0' || real_map->map[*r][*c] == 'C' || real_map->map[*r][*c] == 'E')
-		{
-			mlx_put_image_to_window(real_map->mlx, real_map->win, real_map->floor, *c * 64, *r * 64);
-		}
+		if (test_walk(real_map, *r, (*c) - 1))
+			(*c)--;
 	}
 	if (key_code == 13 || key_code == 126)
 	{
-		ft_printf("r = %d\t", *r);
-		ft_printf("r = %d\t", *r);
-		(*r)--;
-		ft_printf("r = %d\t", *r);
-		ft_printf("r = %d\t", *r);
-		test_walk(real_map, *r, *c);
-		if (real_map->map[*r][*c] == '0' || real_map->map[*r][*c] == 'C' || real_map->map[*r][*c] == 'E')
+		if (test_walk(real_map, (*r) - 1, *c))
 		{
-			mlx_put_image_to_window(real_map->mlx, real_map->win, real_map->floor, *c * 64, *r * 64);
-			mlx_put_image_to_window(real_map->mlx, real_map->win, real_map->player, *c * 64, *r * 64);
-			mlx_put_image_to_window(real_map->mlx, real_map->win, real_map->floor, *c * 64, (*r + 1) * 64);
+			(*r)--;
 		}
 	}
-	// if (key_code == 2 || key_code == 124)
-	// {
-	// 	c++;
-	// 	if (real_map->map[*r][c] == '0' || real_map->map[r][c] == 'C' || real_map->map[r][c] == 'E')
-	// 	{
-	// 		mlx_put_image_to_window(real_map->mlx, real_map->win, real_map->floor, c * 64, r * 64);
-	// 		mlx_put_image_to_window(real_map->mlx, real_map->win, real_map->player, c * 64, r * 64);
-	// 		mlx_put_image_to_window(real_map->mlx, real_map->win, real_map->floor, (c - 1) * 64, r * 64);
-	// 	}
-	// }
 }
 
-void	test_walk(t_map *real_map, int r, int c)
+int	test_walk(t_map *real_map, int r, int c)
 {
-	// ft_printf("Test\n");
-	if (real_map->map[r][c] != '1' && real_map->map[r][c] != 'E')
+	if (r > -1 && c > -1 && real_map->map[r][c] != '1' \
+	&& real_map->map[r][c] != 'E' )
 	{
-		ft_printf("r = %d\n", r);
 		real_map->step++;
 		if (real_map->map[r][c] == 'C')
 		{
@@ -95,8 +66,9 @@ void	test_walk(t_map *real_map, int r, int c)
 			real_map->map[r][c] = '0';
 		}
 		ft_printf("Step : %d\n", real_map->step);
+		return (1);
 	}
-	else if (real_map->map[r][c] == 'E')
+	else if (r > -1 && c > -1 && real_map->map[r][c] == 'E')
 	{
 		real_map->step++;
 		if (real_map->take_c == real_map->c)
@@ -106,4 +78,5 @@ void	test_walk(t_map *real_map, int r, int c)
 			exit(0);
 		}
 	}
+	return (0);
 }
