@@ -6,7 +6,7 @@
 /*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 01:07:57 by bsirikam          #+#    #+#             */
-/*   Updated: 2022/12/29 22:54:27 by bsirikam         ###   ########.fr       */
+/*   Updated: 2022/12/30 02:47:35 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_map
 	char			**map;
 	int				p_pos_r;
 	int				p_pos_c;
+	int				height;
 	int				walk;
 	int				c;
 	int				take_c;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_create_map.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsirikam <bsirikam@student.42bangkok.com>  +#+  +:+       +#+        */
+/*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:42:18 by bsirikam          #+#    #+#             */
-/*   Updated: 2022/12/24 22:31:29 by bsirikam         ###   ########.fr       */
+/*   Updated: 2022/12/30 01:14:58 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

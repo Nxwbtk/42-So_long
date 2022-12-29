@@ -6,7 +6,7 @@
 #    By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/11 21:38:14 by bsirikam          #+#    #+#              #
-#    Updated: 2022/12/29 22:02:28 by bsirikam         ###   ########.fr        #
+#    Updated: 2022/12/30 01:10:59 by bsirikam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,12 +24,12 @@ ft_dern.c
 OBJ = $(SRC:.c=.o)
 # OBJ_B = $(SRC_B:.c=.o)
 CC = gcc
-CFLAGS = #-Wall -Werror -Wextra
+CFLAGS = -g #-Wall -Werror -Wextra
 HEADER = so_long.h
 MLX_INC = -LMLX -lMLX -IMLX -framework OpenGL -framework AppKit 
 
 %.o: %.c $(HEADER)
-	@$(CC) $(MLX_INC) -c $< -o $@
+	@$(CC) $(CFLAGS) $(MLX_INC) -c $< -o $@
 
 all: $(MLX_LIB) $(NAME)
 

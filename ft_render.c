@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_render.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsirikam <bsirikam@student.42bangkok.com>  +#+  +:+       +#+        */
+/*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 22:39:04 by bsirikam          #+#    #+#             */
-/*   Updated: 2022/12/25 22:39:05 by bsirikam         ###   ########.fr       */
+/*   Updated: 2022/12/30 02:48:05 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	ft_render(t_map *real_map, t_sarabun *sarabun)
 	real_map->p_pos_r = sarabun->p_pos_r;
 	real_map->p_pos_c = sarabun->p_pos_c;
 	real_map->c = sarabun->num_c_can_read;
+	real_map->height = sarabun->hight;
 	ft_come_hook(real_map);
 	mlx_loop(real_map->mlx);
 }
