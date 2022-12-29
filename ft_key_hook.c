@@ -6,7 +6,7 @@
 /*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 16:54:27 by bsirikam          #+#    #+#             */
-/*   Updated: 2022/12/30 03:07:57 by bsirikam         ###   ########.fr       */
+/*   Updated: 2022/12/30 03:19:21 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	ft_check_walk(t_map *real_map, int *r, int *c, int key_code)
 			((*c) + 1) * 64);
 		}
 	}
-	else if (key_code == 0 || key_code == 124)
+	else if (key_code == 2 || key_code == 124)
 	{
 		if (test_walk(real_map, (*r) + 1, (*c)))
 		{
@@ -76,7 +76,7 @@ void	ft_check_walk(t_map *real_map, int *r, int *c, int key_code)
 			((*c)) * 64);
 		}
 	}
-	else if (key_code == 13 || key_code == 125)
+	else if (key_code == 1 || key_code == 125)
 	{
 		if (test_walk(real_map, (*r), (*c) + 1))
 		{
