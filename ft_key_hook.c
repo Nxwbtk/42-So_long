@@ -6,7 +6,7 @@
 /*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 16:54:27 by bsirikam          #+#    #+#             */
-/*   Updated: 2022/12/30 03:51:40 by bsirikam         ###   ########.fr       */
+/*   Updated: 2022/12/30 04:12:12 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_key_hook(int key_code, t_map *real_map)
 		r = real_map->p_pos_r;
 		c = real_map->p_pos_c;
 	}
-	ft_check_walk(real_map, &r, &c, key_code);
+	ft_check_walk(real_map, &c, &r, key_code);
 	return (0);
 }
 
@@ -82,8 +82,10 @@ void	ft_check_walk(t_map *real_map, int *r, int *c, int key_code)
 		}
 	}
 }
+
 int	test_walk(t_map *real_map, int r, int c)
 {
+	printf("walk\n");
 	if (r > -1 && c > -1 && real_map->map[c][r] != '1' 
 		&& real_map->map[c][r] != 'E' )
 	{
