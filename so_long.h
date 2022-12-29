@@ -32,6 +32,9 @@ typedef struct s_map
 	int				p_pos_r;
 	int				p_pos_c;
 	int				walk;
+	int				c;
+	int				take_c;
+	int				step;
 	void			*mlx;
 	void			*win;
 	void			*wall;

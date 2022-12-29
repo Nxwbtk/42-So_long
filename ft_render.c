@@ -31,6 +31,7 @@ void	ft_render(t_map *real_map, t_sarabun *sarabun)
 	ft_wall(real_map);
 	real_map->p_pos_r = sarabun->p_pos_r;
 	real_map->p_pos_c = sarabun->p_pos_c;
+	real_map->c = sarabun->num_c_can_read;
 	ft_come_hook(real_map);
 	mlx_loop(real_map->mlx);
 }
