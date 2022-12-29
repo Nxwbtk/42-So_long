@@ -6,7 +6,7 @@
 /*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 16:54:27 by bsirikam          #+#    #+#             */
-/*   Updated: 2022/12/30 03:19:21 by bsirikam         ###   ########.fr       */
+/*   Updated: 2022/12/30 03:51:40 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,7 @@ int	ft_key_hook(int key_code, t_map *real_map)
 		r = real_map->p_pos_r;
 		c = real_map->p_pos_c;
 	}
-	printf("%s\n", real_map->map[c]);
-	printf("r = %d c = %d\n", r, c);
 	ft_check_walk(real_map, &r, &c, key_code);
-	ft_printf("key = %d\n", key_code);
 	return (0);
 }
 
@@ -59,7 +56,6 @@ void	ft_check_walk(t_map *real_map, int *r, int *c, int key_code)
 		if (test_walk(real_map, (*r), (*c) - 1))
 		{
 			(*c)--;
-			printf("c - 1\n");
 			ft_dern(real_map, *r, *c);
 			mlx_put_image_to_window(real_map->mlx, real_map->win, real_map->floor, ((*r)) * 64, \
 			((*c) + 1) * 64);
@@ -70,7 +66,6 @@ void	ft_check_walk(t_map *real_map, int *r, int *c, int key_code)
 		if (test_walk(real_map, (*r) + 1, (*c)))
 		{
 			(*r)++;
-			printf("r + 1\n");
 			ft_dern(real_map, *r, *c);
 			mlx_put_image_to_window(real_map->mlx, real_map->win, real_map->floor, ((*r) - 1) * 64, \
 			((*c)) * 64);
@@ -81,7 +76,6 @@ void	ft_check_walk(t_map *real_map, int *r, int *c, int key_code)
 		if (test_walk(real_map, (*r), (*c) + 1))
 		{
 			(*c)++;
-			printf("c + 1\n");
 			ft_dern(real_map, *r, *c);
 			mlx_put_image_to_window(real_map->mlx, real_map->win, real_map->floor, (*r) * 64, \
 			((*c) - 1) * 64);
@@ -90,10 +84,6 @@ void	ft_check_walk(t_map *real_map, int *r, int *c, int key_code)
 }
 int	test_walk(t_map *real_map, int r, int c)
 {
-	// printf("here\n"); 
-	printf("c=%d r=%d\n", c,r );
-	// printf("%s\n", real_map->map[9]);
-	// printf("there\n");
 	if (r > -1 && c > -1 && real_map->map[c][r] != '1' 
 		&& real_map->map[c][r] != 'E' )
 	{
