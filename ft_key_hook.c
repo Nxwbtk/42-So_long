@@ -6,7 +6,7 @@
 /*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 16:54:27 by bsirikam          #+#    #+#             */
-/*   Updated: 2022/12/29 21:51:20 by bsirikam         ###   ########.fr       */
+/*   Updated: 2022/12/29 23:01:52 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,21 @@ void	ft_check_walk(t_map *real_map, int *r, int *c, int key_code)
 	if (key_code == 0 || key_code == 123)
 	{
 		if (test_walk(real_map, *r, (*c) - 1))
+		{
 			(*c)--;
+			ft_dern(real_map, *r, *c);
+			mlx_put_image_to_window(real_map->mlx, real_map->win, real_map->floor, (*r) * 64, \
+			((*c) + 1) * 64);
+		}
 	}
 	if (key_code == 13 || key_code == 126)
 	{
 		if (test_walk(real_map, (*r) - 1, *c))
 		{
 			(*r)--;
+			ft_dern(real_map, *r, *c);
+			mlx_put_image_to_window(real_map->mlx, real_map->win, real_map->floor, ((*r) + 1) * 64, \
+			(*c) * 64);
 		}
 	}
 }
