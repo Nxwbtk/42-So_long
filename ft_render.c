@@ -6,7 +6,7 @@
 /*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 22:39:04 by bsirikam          #+#    #+#             */
-/*   Updated: 2022/12/30 02:48:05 by bsirikam         ###   ########.fr       */
+/*   Updated: 2023/01/06 04:36:05 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_render(t_map *real_map, t_sarabun *sarabun)
 {
 	real_map->mlx = mlx_init();
 	real_map->win = mlx_new_window(real_map->mlx, (sarabun->len - 1) * 64, \
-	(sarabun->hight * 64) + 1, "42Bangkok Armel's Adventure");
+	(sarabun->hight - 1) * 64, "42Bangkok Armel's Adventure");
 	real_map->wall = mlx_xpm_file_to_image(real_map->mlx, "./img/wall64.xpm", \
 	&sarabun->len, &sarabun->hight);
 	real_map->floor = mlx_xpm_file_to_image(real_map->mlx, \

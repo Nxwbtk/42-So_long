@@ -6,7 +6,7 @@
 #    By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/11 21:38:14 by bsirikam          #+#    #+#              #
-#    Updated: 2022/12/30 01:10:59 by bsirikam         ###   ########.fr        #
+#    Updated: 2023/01/06 03:01:04 by bsirikam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,15 +26,17 @@ OBJ = $(SRC:.c=.o)
 CC = gcc
 CFLAGS = -g #-Wall -Werror -Wextra
 HEADER = so_long.h
-MLX_INC = -LMLX -lMLX -IMLX -framework OpenGL -framework AppKit 
+MLX_INC = -LMLX -lMLX -IMLX -framework OpenGL -framework AppKit
 
 %.o: %.c $(HEADER)
-	@$(CC) $(CFLAGS) $(MLX_INC) -c $< -o $@
+	# @$(CC) $(CFLAGS) $(MLX_INC) -c $< -o $@
+	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 all: $(MLX_LIB) $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(MLX_INC) $(OBJ) -o $(NAME)
+	# $(CC) $(CFLAGS) $(MLX_INC) $(OBJ) -o $(NAME)
+	$(CC) $(OBJ) -Lmlx_Linux -lmlx_Linux -L/usr/lib -Imlx_Linux -lXext -lX11 -lm -lz -o $(NAME)
 
 # bonus: all
 # 	$(CC) $(CFLAGS) -c $(SRC_B)

@@ -6,7 +6,7 @@
 /*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 16:54:27 by bsirikam          #+#    #+#             */
-/*   Updated: 2022/12/30 04:12:12 by bsirikam         ###   ########.fr       */
+/*   Updated: 2023/01/06 04:47:31 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_key_hook(int key_code, t_map *real_map)
 {
 	static int	r = -1;
 	static int	c = -1;
-	
+
 	if (r == -1)
 	{
 		r = real_map->p_pos_r;
@@ -38,20 +38,19 @@ int	ft_key_hook(int key_code, t_map *real_map)
 
 void	ft_check_walk(t_map *real_map, int *r, int *c, int key_code)
 {
-	if (key_code == 53)
+	if (key_code == KEY_ESC)
 		ft_close(real_map);
-	if (key_code == 0 || key_code == 123)
+	if (key_code == KEY_LEFT || key_code == KEY_A)
 	{
 		if (test_walk(real_map, (*r) - 1, (*c)))
 		{
 			(*r)--;
-			printf("r - 1\n");
 			ft_dern(real_map, *r, *c);
 			mlx_put_image_to_window(real_map->mlx, real_map->win, real_map->floor, ((*r) + 1) * 64, \
 			((*c))* 64);
 		}
 	}
-	else if (key_code == 13 || key_code == 126)
+	else if (key_code == KEY_W || key_code == KEY_UP)
 	{
 		if (test_walk(real_map, (*r), (*c) - 1))
 		{
@@ -61,7 +60,7 @@ void	ft_check_walk(t_map *real_map, int *r, int *c, int key_code)
 			((*c) + 1) * 64);
 		}
 	}
-	else if (key_code == 2 || key_code == 124)
+	else if (key_code == KEY_D || key_code == KEY_RIGHT)
 	{
 		if (test_walk(real_map, (*r) + 1, (*c)))
 		{
@@ -71,7 +70,7 @@ void	ft_check_walk(t_map *real_map, int *r, int *c, int key_code)
 			((*c)) * 64);
 		}
 	}
-	else if (key_code == 1 || key_code == 125)
+	else if (key_code == KEY_S || key_code == KEY_DOWN)
 	{
 		if (test_walk(real_map, (*r), (*c) + 1))
 		{
@@ -85,8 +84,8 @@ void	ft_check_walk(t_map *real_map, int *r, int *c, int key_code)
 
 int	test_walk(t_map *real_map, int r, int c)
 {
-	printf("walk\n");
-	if (r > -1 && c > -1 && real_map->map[c][r] != '1' 
+	ft_printf("walk\n");
+	if (r > -1 && c > -1 && real_map->map[c][r] != '1'
 		&& real_map->map[c][r] != 'E' )
 	{
 		real_map->step++;
@@ -104,9 +103,9 @@ int	test_walk(t_map *real_map, int r, int c)
 		if (real_map->take_c == real_map->c)
 		{
 			ft_printf("Step : %d\n", real_map->step);
-			ft_free_render(real_map);
-			exit(0);
+			ft_close(real_map);
 		}
+		real_map->step--;
 	}
 	return (0);
 }
