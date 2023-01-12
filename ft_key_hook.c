@@ -6,7 +6,7 @@
 /*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 16:54:27 by bsirikam          #+#    #+#             */
-/*   Updated: 2023/01/06 04:47:31 by bsirikam         ###   ########.fr       */
+/*   Updated: 2023/01/09 05:16:04 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,8 @@ int	test_walk(t_map *real_map, int r, int c)
 			ft_printf("Step : %d\n", real_map->step);
 			ft_close(real_map);
 		}
+		else
+			return (1);
 		real_map->step--;
 	}
 	return (0);

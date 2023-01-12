@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_ber.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsirikam <bsirikam@student.42bangkok.com>  +#+  +:+       +#+        */
+/*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 01:16:17 by bsirikam          #+#    #+#             */
-/*   Updated: 2022/12/21 21:03:39 by bsirikam         ###   ########.fr       */
+/*   Updated: 2023/01/06 06:15:51 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	ft_check_ber(char *av, t_sarabun *sarabun)
 
 	if (ft_strrchr(av, '.') == NULL)
 	{
+		free(sarabun);
 		ft_printf("File is invalid");
 		exit(1);
 	}
@@ -26,6 +27,7 @@ void	ft_check_ber(char *av, t_sarabun *sarabun)
 		fd = open(av, O_RDONLY);
 		if (fd < 0)
 		{
+			free(sarabun);
 			ft_printf("File is invalid");
 			exit(1);
 		}

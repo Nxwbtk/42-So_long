@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsirikam <bsirikam@student.42bangkok.com>  +#+  +:+       +#+        */
+/*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 02:08:01 by bsirikam          #+#    #+#             */
-/*   Updated: 2022/12/21 21:22:16 by bsirikam         ###   ########.fr       */
+/*   Updated: 2023/01/06 06:13:43 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	ft_check_line(char *line, t_sarabun *sarabun)
 	i = -1;
 	if ((line == NULL && c < 1) || p > 1 || e > 1)
 	{
+		// ft_free_map(sarabun);
 		free(line);
 		exit(1);
 	}

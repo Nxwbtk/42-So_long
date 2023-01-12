@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_line.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsirikam <bsirikam@student.42bangkok.com>  +#+  +:+       +#+        */
+/*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 01:16:41 by bsirikam          #+#    #+#             */
-/*   Updated: 2022/12/24 21:52:42 by bsirikam         ###   ########.fr       */
+/*   Updated: 2023/01/06 06:16:11 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	ft_get_line(int fd, t_sarabun *sarabun, char *av)
 	line = get_next_line(fd);
 	if (line == NULL)
 	{
+		free(sarabun);
 		ft_printf("File is empyty");
 		exit(1);
 	}

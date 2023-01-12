@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_frame.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsirikam <bsirikam@student.42bangkok.com>  +#+  +:+       +#+        */
+/*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:07:10 by bsirikam          #+#    #+#             */
-/*   Updated: 2022/12/24 22:27:13 by bsirikam         ###   ########.fr       */
+/*   Updated: 2023/01/06 06:14:16 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ void	ft_check_frame(t_sarabun *sarabun)
 			while (sarabun->map[h][i] && sarabun->map[h][i] != '\n')
 			{
 				if (sarabun->map[h][i] != '1')
+				{
+					ft_free_map(sarabun);
 					exit(1);
+				}
 				i++;
 			}
 		}
@@ -37,6 +40,7 @@ void	ft_check_frame(t_sarabun *sarabun)
 			len_line = ft_strlen(sarabun->map[h]) - 1;
 			if ((sarabun->map[h][0] != '1' || sarabun->map[h][len_line - 1] != '1'))
 			{
+				ft_free_map(sarabun);
 				exit(1);
 			}
 		}
