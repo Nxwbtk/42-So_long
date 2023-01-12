@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_flood_fill.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsirikam <bsirikam@student.42bangkok.com>  +#+  +:+       +#+        */
+/*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 16:36:13 by bsirikam          #+#    #+#             */
-/*   Updated: 2022/12/25 22:40:30 by bsirikam         ###   ########.fr       */
+/*   Updated: 2023/01/13 03:50:56 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	check_c_e(t_sarabun *sarabun)
 	{
 		ft_printf("Path error\n");
 		ft_free_map(sarabun);
+		free(sarabun);
 		exit(1);
 	}
 }

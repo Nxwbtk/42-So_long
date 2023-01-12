@@ -6,7 +6,7 @@
 /*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 22:39:04 by bsirikam          #+#    #+#             */
-/*   Updated: 2023/01/06 04:36:05 by bsirikam         ###   ########.fr       */
+/*   Updated: 2023/01/13 03:55:40 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,13 @@ void	ft_render(t_map *real_map, t_sarabun *sarabun)
 	"./img/collect.xpm", &sarabun->len, &sarabun->hight);
 	real_map->exit = mlx_xpm_file_to_image(real_map->mlx, "./img/Exit64.xpm", \
 	&sarabun->len, &sarabun->hight);
-	ft_floor(real_map, sarabun);
+	ft_floor(real_map);
 	ft_wall(real_map);
 	real_map->p_pos_r = sarabun->p_pos_r;
 	real_map->p_pos_c = sarabun->p_pos_c;
 	real_map->c = sarabun->num_c_can_read;
 	real_map->height = sarabun->hight;
+	free(sarabun);
 	ft_come_hook(real_map);
 	mlx_loop(real_map->mlx);
 }
@@ -56,7 +57,7 @@ void	ft_wall(t_map *real_map)
 	}
 }
 
-void	ft_floor(t_map *real_map, t_sarabun *sarabun)
+void	ft_floor(t_map *real_map)
 {
 	int	h;
 	int	l;

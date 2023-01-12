@@ -6,7 +6,7 @@
 /*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 01:16:17 by bsirikam          #+#    #+#             */
-/*   Updated: 2023/01/06 06:15:51 by bsirikam         ###   ########.fr       */
+/*   Updated: 2023/01/13 03:48:12 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,8 @@ void	ft_check_ber(char *av, t_sarabun *sarabun)
 		ft_get_line(fd, sarabun, av);
 	}
 	else
+	{
+		free(sarabun);
 		exit(1);
+	}
 }

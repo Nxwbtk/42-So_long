@@ -6,7 +6,7 @@
 /*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 01:07:57 by bsirikam          #+#    #+#             */
-/*   Updated: 2023/01/06 06:12:51 by bsirikam         ###   ########.fr       */
+/*   Updated: 2023/01/13 03:53:04 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,7 @@ void	ft_flood_fill(char **map, t_sarabun *sarabun, int row, int column);
 void	check_c_e(t_sarabun *sarabun);
 void	ft_create_real_map(t_map *map_real, t_sarabun *sarabun, char *av);
 void	ft_render(t_map *real_map, t_sarabun *sarabun);
-void	ft_floor(t_map *real_map, t_sarabun *sarabun);
+void	ft_floor(t_map *real_map);
 void	ft_wall(t_map *real_map);
 void	ft_free_map(t_sarabun *sarabun);
 void	ft_free_render(t_map *real_map);
