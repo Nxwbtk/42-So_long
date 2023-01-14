@@ -6,7 +6,7 @@
 /*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 16:54:27 by bsirikam          #+#    #+#             */
-/*   Updated: 2023/01/13 04:08:28 by bsirikam         ###   ########.fr       */
+/*   Updated: 2023/01/14 22:49:30 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int		test_walk(t_map *real_map, int r, int c);
 void	ft_come_hook(t_map *real_map)
 {
 	real_map->step = 0;
+	real_map->take_c = 0;
 	mlx_key_hook(real_map->win, ft_key_hook, real_map);
 	return ;
 }
@@ -44,40 +45,40 @@ void	ft_check_walk(t_map *real_map, int *r, int *c, int key_code)
 	{
 		if (test_walk(real_map, (*r) - 1, (*c)))
 		{
+			mlx_put_image_to_window(real_map->mlx, real_map->win, \
+			real_map->floor, (*r) * 64, (*c) * 64);
 			(*r)--;
 			ft_dern(real_map, *r, *c);
-			mlx_put_image_to_window(real_map->mlx, real_map->win, real_map->floor, ((*r) + 1) * 64, \
-			((*c))* 64);
 		}
 	}
 	else if (key_code == KEY_W || key_code == KEY_UP)
 	{
 		if (test_walk(real_map, (*r), (*c) - 1))
 		{
+			mlx_put_image_to_window(real_map->mlx, real_map->win, \
+			real_map->floor, (*r) * 64, (*c) * 64);
 			(*c)--;
 			ft_dern(real_map, *r, *c);
-			mlx_put_image_to_window(real_map->mlx, real_map->win, real_map->floor, ((*r)) * 64, \
-			((*c) + 1) * 64);
 		}
 	}
 	else if (key_code == KEY_D || key_code == KEY_RIGHT)
 	{
 		if (test_walk(real_map, (*r) + 1, (*c)))
 		{
+			mlx_put_image_to_window(real_map->mlx, real_map->win, \
+			real_map->floor, (*r) * 64, (*c) * 64);
 			(*r)++;
 			ft_dern(real_map, *r, *c);
-			mlx_put_image_to_window(real_map->mlx, real_map->win, real_map->floor, ((*r) - 1) * 64, \
-			((*c)) * 64);
 		}
 	}
 	else if (key_code == KEY_S || key_code == KEY_DOWN)
 	{
 		if (test_walk(real_map, (*r), (*c) + 1))
 		{
+			mlx_put_image_to_window(real_map->mlx, real_map->win, \
+			real_map->floor, (*r) * 64, (*c) * 64);
 			(*c)++;
 			ft_dern(real_map, *r, *c);
-			mlx_put_image_to_window(real_map->mlx, real_map->win, real_map->floor, (*r) * 64, \
-			((*c) - 1) * 64);
 		}
 	}
 }
@@ -106,7 +107,7 @@ int	test_walk(t_map *real_map, int r, int c)
 		}
 		else
 		{
-			real_map->step--;
+			ft_printf("Step : %d\n", real_map->step);
 			return (1);
 		}
 	}

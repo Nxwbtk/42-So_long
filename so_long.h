@@ -6,7 +6,7 @@
 /*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 01:07:57 by bsirikam          #+#    #+#             */
-/*   Updated: 2023/01/13 03:53:04 by bsirikam         ###   ########.fr       */
+/*   Updated: 2023/01/14 22:24:06 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ typedef struct s_map
 	int				step;
 	int				r_decoy;
 	int				c_decoy;
+	int				r_e;
+	int				c_e;
 	void			*mlx;
 	void			*win;
 	void			*wall;
@@ -136,5 +138,8 @@ void	ft_come_hook(t_map *real_map);
 void	ft_close(t_map *real_map);
 void	ft_dern(t_map *m, int r, int c);
 void	ft_free_map(t_sarabun *sarabun);
+void	ft_ha_e(t_sarabun *sarabun, t_map *real_map);
+void	error(t_sarabun *sb);
+void	help(int h, int i, t_sarabun *sb, int len_line);
 
 #endif
