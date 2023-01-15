@@ -6,7 +6,7 @@
 #    By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/11 21:38:14 by bsirikam          #+#    #+#              #
-#    Updated: 2023/01/14 18:47:08 by bsirikam         ###   ########.fr        #
+#    Updated: 2023/01/16 01:23:59 by bsirikam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,40 +19,36 @@ ft_check_frame.c ft_ha_p.c ft_so_long_utils.c ft_flood_fill.c \
 ft_creat_real_map.c ft_render.c ft_key_hook.c ft_close.c \
 ft_dern.c
 
-# SRC_B =
-
 OBJ = $(SRC:.c=.o)
-# OBJ_B = $(SRC_B:.c=.o)
 CC = gcc
-CFLAGS = -g #-Wall -Werror -Wextra
+CFLAGS = #-g -Wall -Werror -Wextra
 HEADER = so_long.h
-MLX_INC = -LMLX -lMLX -IMLX -framework OpenGL -framework AppKit
+MLX_INC = -LMLX -lMLX  -framework OpenGL -framework AppKit
+MLX_DIR = ./MLX
 
 %.o: %.c $(HEADER)
-	@$(CC) $(CFLAGS) $(MLX_INC) -c $< -o $@
-	# $(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
+	@$(CC) $(CFLAGS) -IMLX -c $< -o $@
+#$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
-all: $(MLX_LIB) $(NAME)
+all: MLX_LIB $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(MLX_INC) $(OBJ) -o $(NAME)
-	# $(CC) $(OBJ) -Lmlx_Linux -lmlx_Linux -L/usr/lib -Imlx_Linux -lXext -lX11 -lm -lz -o $(NAME)
+	@$(CC) $(OBJ) -o $(NAME) $(MLX_INC)
+#$(CC) $(OBJ) -Lmlx_Linux -lmlx_Linux -L/usr/lib -Imlx_Linux -lXext -lX11 -lm -lz -o $(NAME)
 
-# bonus: all
-# 	$(CC) $(CFLAGS) -c $(SRC_B)
-# 	ar rcs $(NAME) $(OBJ_B)
 
 leak:
 	@leaks -atExit -- ./so_long map.ber
 
 MLX_LIB:
-	@make -C ./MLX
+	@make -C $(MLX_DIR)
 
 norm:
 	@norminette -R CheckForbiddenHeaderSource $(SRC)
 	@norminette -R CheckDefine *.h
 
 clean:
+	@make -C $(MLX_DIR) clean
 	@rm -f $(OBJ)
 
 fclean: clean

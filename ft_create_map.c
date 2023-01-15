@@ -6,7 +6,7 @@
 /*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:42:18 by bsirikam          #+#    #+#             */
-/*   Updated: 2023/01/14 20:08:11 by bsirikam         ###   ########.fr       */
+/*   Updated: 2023/01/16 01:09:57 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_free_map(t_sarabun *sarabun)
 	int	x;
 
 	x = 0;
-	while (sarabun->map[x])
+	while (x < sarabun->hight)
 	{
 		free(sarabun->map[x]);
 		x++;

@@ -6,7 +6,7 @@
 /*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:07:10 by bsirikam          #+#    #+#             */
-/*   Updated: 2023/01/14 22:31:40 by bsirikam         ###   ########.fr       */
+/*   Updated: 2023/01/16 00:30:42 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	help(int h, int i, t_sarabun *sb, int len_line)
 
 void	error(t_sarabun *sb)
 {
+	ft_printf("frame\n");
 	ft_printf("Error\n");
 	ft_free_map(sb);
 	exit(1);

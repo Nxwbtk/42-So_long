@@ -6,7 +6,7 @@
 /*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 02:08:01 by bsirikam          #+#    #+#             */
-/*   Updated: 2023/01/14 22:43:20 by bsirikam         ###   ########.fr       */
+/*   Updated: 2023/01/16 01:06:39 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 void	error_line(char *line, t_sarabun *sarabun)
 {
-	ft_printf("Error\n");
-	ft_free_map(sarabun);
+	ft_printf("Line Error\n");
 	free(line);
-	exit(1);
+	exit(0);
 }
 
 void	ft_check_line(char *line, t_sarabun *sarabun)
