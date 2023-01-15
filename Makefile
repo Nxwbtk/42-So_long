@@ -6,7 +6,7 @@
 #    By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/11 21:38:14 by bsirikam          #+#    #+#              #
-#    Updated: 2023/01/16 01:55:06 by bsirikam         ###   ########.fr        #
+#    Updated: 2023/01/16 03:02:45 by bsirikam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ leak:
 	@leaks -atExit -- ./so_long map.ber
 
 MLX_LIB:
-	@make -C $(MLX_DIR)
+	@make -C $(MLX_DIR) 2> /dev/null
 
 norm:
 	@norminette -R CheckForbiddenHeaderSource $(SRC)
