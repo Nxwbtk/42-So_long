@@ -6,7 +6,7 @@
 /*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 01:15:09 by bsirikam          #+#    #+#             */
-/*   Updated: 2023/01/14 21:53:51 by bsirikam         ###   ########.fr       */
+/*   Updated: 2023/01/16 01:56:35 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int ac, char **av)
 	{
 		free(sarabun);
 		ft_printf("Please input file");
-		exit(1);
+		exit(EXIT_SUCCESS);
 	}
 	else if (ac == 2)
 	{

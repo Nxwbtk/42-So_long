@@ -6,7 +6,7 @@
 /*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 16:54:27 by bsirikam          #+#    #+#             */
-/*   Updated: 2023/01/14 22:49:30 by bsirikam         ###   ########.fr       */
+/*   Updated: 2023/01/16 02:00:35 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ int	test_walk(t_map *real_map, int r, int c)
 		if (real_map->take_c == real_map->c)
 		{
 			ft_printf("Step : %d\n", real_map->step);
+			ft_printf("---EXIT COMPLEATE---\n");
 			ft_close(real_map);
 		}
 		else

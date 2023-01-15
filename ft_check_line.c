@@ -6,7 +6,7 @@
 /*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 02:08:01 by bsirikam          #+#    #+#             */
-/*   Updated: 2023/01/16 01:06:39 by bsirikam         ###   ########.fr       */
+/*   Updated: 2023/01/16 01:56:04 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	error_line(char *line, t_sarabun *sarabun)
 {
 	ft_printf("Line Error\n");
 	free(line);
-	exit(0);
+	exit(EXIT_SUCCESS);
 }
 
 void	ft_check_line(char *line, t_sarabun *sarabun)
