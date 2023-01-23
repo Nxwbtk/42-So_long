@@ -6,7 +6,7 @@
 /*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 01:07:57 by bsirikam          #+#    #+#             */
-/*   Updated: 2023/01/16 00:37:35 by bsirikam         ###   ########.fr       */
+/*   Updated: 2023/01/23 23:13:41 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,5 +141,11 @@ void	ft_free_map(t_sarabun *sarabun);
 void	ft_ha_e(t_sarabun *sarabun, t_map *real_map);
 void	error(t_sarabun *sb);
 void	help(int h, int i, t_sarabun *sb, int len_line);
+void	ft_strchr_bruh(t_sarabun *sarabun, char *line);
+void	ft_left(t_map *real_map, int *r, int *c);
+void	ft_up(t_map *real_map, int *r, int *c);
+void	ft_right(t_map *real_map, int *r, int *c);
+void	ft_down(t_map *real_map, int *r, int *c);
+void	ft_oak_e(t_map *real_map);
 
 #endif
