@@ -6,7 +6,7 @@
 #    By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/11 21:38:14 by bsirikam          #+#    #+#              #
-#    Updated: 2023/01/23 23:04:39 by bsirikam         ###   ########.fr        #
+#    Updated: 2023/01/26 20:10:52 by bsirikam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,21 +21,21 @@ ft_dern.c ft_help_key_hook.c
 
 OBJ = $(SRC:.c=.o)
 CC = gcc
-CFLAGS = #-g -Wall -Werror -Wextra
+CFLAGS = -g -Wall -Werror -Wextra
 HEADER = so_long.h
 MLX_INC = -LMLX -lMLX  -framework OpenGL -framework AppKit
-# MLX_DIR = ./MLX
-MLX_DIR = ./mlx_Linux
+MLX_DIR = ./MLX
+# MLX_DIR = ./mlx_Linux
 
 %.o: %.c $(HEADER)
-# @$(CC) $(CFLAGS) -IMLX -c $< -o $@
-	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
+	@$(CC) $(CFLAGS) -IMLX -c $< -o $@
+#$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 all: MLX_LIB $(NAME)
 
 $(NAME): $(OBJ)
-# @$(CC) $(OBJ) -o $(NAME) $(MLX_INC)
-	$(CC) $(OBJ) -Lmlx_Linux -lmlx_Linux -L/usr/lib -Imlx_Linux -lXext -lX11 -lm -lz -o $(NAME)
+	@$(CC) $(OBJ) -o $(NAME) $(MLX_INC)
+#$(CC) $(OBJ) -Lmlx_Linux -lmlx_Linux -L/usr/lib -Imlx_Linux -lXext -lX11 -lm -lz -o $(NAME)
 
 
 leak:

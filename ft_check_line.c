@@ -6,7 +6,7 @@
 /*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 02:08:01 by bsirikam          #+#    #+#             */
-/*   Updated: 2023/01/23 22:54:13 by bsirikam         ###   ########.fr       */
+/*   Updated: 2023/01/26 20:12:05 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	error_line(char *line, t_sarabun *sarabun)
 {
 	ft_printf("Line Error. Doesn\'t have C or P or E or 1 following the rule.\n");
 	free(line);
+	free(sarabun->map);
+	free(sarabun);
 	exit(EXIT_SUCCESS);
 }
 

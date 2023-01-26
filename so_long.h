@@ -6,7 +6,7 @@
 /*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 01:07:57 by bsirikam          #+#    #+#             */
-/*   Updated: 2023/01/23 23:13:41 by bsirikam         ###   ########.fr       */
+/*   Updated: 2023/01/26 20:17:11 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,7 +135,7 @@ void	ft_free_render(t_map *real_map);
 int		ft_key_hook(int key_code, t_map *real_map);
 void	ft_put_img(char c, t_map *real_map, int h, int l);
 void	ft_come_hook(t_map *real_map);
-void	ft_close(t_map *real_map);
+int		ft_close(t_map *real_map);
 void	ft_dern(t_map *m, int r, int c);
 void	ft_free_map(t_sarabun *sarabun);
 void	ft_ha_e(t_sarabun *sarabun, t_map *real_map);
@@ -147,5 +147,6 @@ void	ft_up(t_map *real_map, int *r, int *c);
 void	ft_right(t_map *real_map, int *r, int *c);
 void	ft_down(t_map *real_map, int *r, int *c);
 void	ft_oak_e(t_map *real_map);
+int		test_walk(t_map *real_map, int r, int c);
 
 #endif
