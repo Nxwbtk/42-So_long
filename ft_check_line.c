@@ -6,7 +6,7 @@
 /*   By: bsirikam <bsirikam@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 02:08:01 by bsirikam          #+#    #+#             */
-/*   Updated: 2023/01/26 20:12:05 by bsirikam         ###   ########.fr       */
+/*   Updated: 2023/01/27 01:44:57 by bsirikam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@ void	error_line(char *line, t_sarabun *sarabun)
 
 void	ft_strchr_bruh(t_sarabun *sarabun, char *line)
 {
-	ft_free_map(sarabun);
+	free(sarabun);
 	free(line);
+	ft_printf("Line Error. Doesn\'t have C or P or E or 1 following the rule.\n");
 	exit(EXIT_SUCCESS);
 }
 
